@@ -1,0 +1,27 @@
+class Solution
+{
+public:
+    int minDeletionSize(vector<string>& A) 
+    {
+        int l=A.size();//A的字符串个数
+        int h=A[0].size();//A中字符串的长度
+        vector<int> C;//vector类数组为动态数组，没有内存限制。
+        for(int i=0;i<h;i++)//两个for循环用来对比每一行的字母顺序
+        for(int j=0;j<l;)
+        {
+            if((j+1)<l)
+            {
+                if(A[j][i]>A[j+1][i])
+                {
+                    C.push_back(i);
+                    break;
+                }
+                else
+                    j++;
+            }
+            else
+                break;
+        }
+        return C.size();
+    }
+};
