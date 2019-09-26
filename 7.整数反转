@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int reverse(int x) {
+        int rev=0;
+        while(x!=0)
+        {
+            int pop=x%10;//得到最低位的数字
+            x/=10;
+            if(rev>INT_MAX/10||(rev==INT_MAX/10&&pop>7))//除以10后会忽略个位数的大小，也可能导致溢出
+                return 0;
+            if(rev<INT_MIN/10||(rev==INT_MIN/10&&pop<-8))
+                return 0;
+            rev=rev*10+pop;//一步步乘入翻转数字
+        }
+        return rev;
+    }
+};
