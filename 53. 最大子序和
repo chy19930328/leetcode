@@ -3,7 +3,7 @@ public:
     int maxSubArray(vector<int>& nums) 
     {
         int ans=0;
-        int maxn=INT_MIN;
+        int maxn=INT_MIN;//int占四字节32位，INT_MAX=2^31-1,INT_MIN=-2^31,所有超过这个数值的整数都会溢出，结果不定。
         int len=nums.size();
         for(int i=0;i<len;i++)
         {
