@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool isLongPressedName(string name, string typed) 
+    {
+        int j=0;
+        int len=name.size();
+        for(int i=0;i<typed.size();i++)
+        {
+            if(typed[i]==name[j]&&j<len)//对typed进行计数操作，相同就加一
+            {
+                j++;
+                continue;
+            }
+            else if(name[j-1]==typed[i])//前向对齐，如果不等，则可能是连打，typed如果与name的前一字符相同，则是连打，否则报错
+            {
+                continue;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+        if(len==j)
+            return true;
+        else
+            return false;
+        }
+    };
